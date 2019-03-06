@@ -12,5 +12,7 @@ class BluetoothSessionVC: UIViewController {
     
     var bleManager = BluetoothManager.shared
     
+ 
+    
 }
 

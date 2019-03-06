@@ -15,6 +15,7 @@
 		AFAFDF04222FCC8E001A8E1A /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDF03222FCC8E001A8E1A /* BluetoothManager.swift */; };
 		AFAFDF06222FCE4B001A8E1A /* BluetoothManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDF05222FCE4B001A8E1A /* BluetoothManagerDelegate.swift */; };
 		AFAFDF0B222FFFF4001A8E1A /* PeripheralsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDF0A222FFFF4001A8E1A /* PeripheralsVC.swift */; };
+		AFAFDF0D22300977001A8E1A /* ServicesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDF0C22300977001A8E1A /* ServicesVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		AFAFDF03222FCC8E001A8E1A /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
 		AFAFDF05222FCE4B001A8E1A /* BluetoothManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManagerDelegate.swift; sourceTree = "<group>"; };
 		AFAFDF0A222FFFF4001A8E1A /* PeripheralsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralsVC.swift; sourceTree = "<group>"; };
+		AFAFDF0C22300977001A8E1A /* ServicesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		AFAFDEEF222ECCE6001A8E1A /* BLEScanner */ = {
 			isa = PBXGroup;
 			children = (
+				AFAFDF0E22300E22001A8E1A /* View */,
 				AFAFDF07222FFEFF001A8E1A /* Controllers */,
 				AFAFDF02222FCC67001A8E1A /* Bluetooth */,
 				AFAFDEF0222ECCE6001A8E1A /* AppDelegate.swift */,
@@ -84,9 +87,17 @@
 			isa = PBXGroup;
 			children = (
 				AFAFDEF2222ECCE6001A8E1A /* BluetoothSessionVC.swift */,
+				AFAFDF0C22300977001A8E1A /* ServicesVC.swift */,
 				AFAFDF0A222FFFF4001A8E1A /* PeripheralsVC.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AFAFDF0E22300E22001A8E1A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +175,7 @@
 				AFAFDF06222FCE4B001A8E1A /* BluetoothManagerDelegate.swift in Sources */,
 				AFAFDF04222FCC8E001A8E1A /* BluetoothManager.swift in Sources */,
 				AFAFDF0B222FFFF4001A8E1A /* PeripheralsVC.swift in Sources */,
+				AFAFDF0D22300977001A8E1A /* ServicesVC.swift in Sources */,
 				AFAFDEF1222ECCE6001A8E1A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,6 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G64WD3CKJY;
 				INFOPLIST_FILE = BLEScanner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -331,6 +344,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G64WD3CKJY;
 				INFOPLIST_FILE = BLEScanner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

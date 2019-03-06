@@ -11,6 +11,7 @@ import CoreBluetooth
 
 private extension String {
     static let PeripheralCellID = "PeripheralCell"
+    static let PeripheralsToServicesSegue = "PeripheralsToServicesSegue"
 }
 
 class PeripheralsVC: BluetoothSessionVC {
@@ -29,8 +30,9 @@ class PeripheralsVC: BluetoothSessionVC {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let servicesVC = segue.destination as? ServicesVC, let services = sender as? [CBService] {
+            servicesVC.services = services
+        }
     }
     
 }
@@ -52,6 +54,15 @@ extension PeripheralsVC: UITableViewDataSource {
 // MARK: UITableViewDelegate conformance
 extension PeripheralsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let peripheral = peripherals[indexPath.row]
+        bleManager.connect(toPeripheral: peripheral) { [weak self](p, error) in
+            if let p = p {
+                self?.bleManager.discoverServices(completion: { (services, error) in
+                    if let services = services {
+                        self?.performSegue(withIdentifier: .PeripheralsToServicesSegue, sender: services)
+                    }
+                })
+            }
+        }
     }
 }

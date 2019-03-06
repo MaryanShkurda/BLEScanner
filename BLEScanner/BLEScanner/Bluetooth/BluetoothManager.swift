@@ -108,7 +108,7 @@ extension BluetoothManager: CBCentralManagerDelegate {
         self.connectedPeripheral = peripheral
         didConnectToPeripheralClosure?(peripheral, nil)
         peripheral.delegate = self
-        peripheral.discoverServices(nil)
+        //peripheral.discoverServices(nil)
     }
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
@@ -131,7 +131,7 @@ extension BluetoothManager: CBPeripheralDelegate {
         if let services = peripheral.services {
             for service in services {
                 print("⚠️ service: \(service.uuid)")
-                peripheral.discoverCharacteristics(nil, for: service)
+                //peripheral.discoverCharacteristics(nil, for: service)
             }
             
         }
