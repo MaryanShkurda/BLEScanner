@@ -112,11 +112,65 @@
                     </view>
                     <connections>
                         <outlet property="table" destination="mvf-bt-14V" id="n33-FS-kys"/>
+                        <segue destination="pKg-Ds-H96" kind="show" identifier="ServicesToCharacteristicsSegue" id="dTa-Id-wPf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xHE-6P-jZu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3260" y="-361"/>
+        </scene>
+        <!--CharacteristicsVC-->
+        <scene sceneID="j0U-Id-Ap1">
+            <objects>
+                <viewController id="pKg-Ds-H96" customClass="CharacteristicsVC" customModule="BLEScanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jnz-e4-Nxo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pWo-zD-Tbn">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CharacteristicsCell" textLabel="Mhn-AE-b4Y" rowHeight="118" style="IBUITableViewCellStyleDefault" id="SYH-ar-p3h">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="118"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SYH-ar-p3h" id="Pbn-M3-gzl">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="117.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mhn-AE-b4Y">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="117.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="pKg-Ds-H96" id="wbG-gz-kBt"/>
+                                    <outlet property="delegate" destination="pKg-Ds-H96" id="rst-Zz-7Dt"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Y4K-hq-iOg" firstAttribute="trailing" secondItem="pWo-zD-Tbn" secondAttribute="trailing" id="0iw-JR-1x4"/>
+                            <constraint firstItem="Y4K-hq-iOg" firstAttribute="bottom" secondItem="pWo-zD-Tbn" secondAttribute="bottom" id="Vd4-jy-wD0"/>
+                            <constraint firstItem="pWo-zD-Tbn" firstAttribute="top" secondItem="Y4K-hq-iOg" secondAttribute="top" id="Xh1-Nr-LlB"/>
+                            <constraint firstItem="pWo-zD-Tbn" firstAttribute="leading" secondItem="Y4K-hq-iOg" secondAttribute="leading" id="ZK6-pQ-GXL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Y4K-hq-iOg"/>
+                    </view>
+                    <connections>
+                        <outlet property="table" destination="pWo-zD-Tbn" id="djF-KR-2yv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pBk-G8-7cu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4068" y="-363.86806596701655"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R66-3X-CGX">

@@ -21,7 +21,7 @@ enum BluetoothError: Error {
 class BluetoothManager: NSObject {
     
     private var centralManager: CBCentralManager!
-    private var connectedPeripheral: CBPeripheral?
+    var connectedPeripheral: CBPeripheral?
     var peripherals = [CBPeripheral]()
     
     static let shared = BluetoothManager()
@@ -70,6 +70,7 @@ class BluetoothManager: NSObject {
             completion(nil, BluetoothError.noConnectedPeripheral)
             return
         }
+        didDiscoveredCharacteristicsClosure = completion
         connected.discoverCharacteristics(nil, for: service)
     }
 }

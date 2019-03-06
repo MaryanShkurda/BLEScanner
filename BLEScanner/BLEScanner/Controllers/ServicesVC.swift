@@ -11,6 +11,7 @@ import CoreBluetooth
 
 private extension String {
     static let ServiceCellID = "ServiceCell"
+    static let ServicesToCharacteristics = "ServicesToCharacteristicsSegue"
 }
 
 class ServicesVC: BluetoothSessionVC {
@@ -18,6 +19,11 @@ class ServicesVC: BluetoothSessionVC {
     @IBOutlet weak var table: UITableView!
     var services = [CBService]()
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let characteristicsVC = segue.destination as? CharacteristicsVC, let characteristics = sender as? [CBCharacteristic] {
+            characteristicsVC.characteristics = characteristics
+        }
+    }
 }
 
 
@@ -38,7 +44,11 @@ extension ServicesVC: UITableViewDataSource {
 // MARK: UITableViewDelegate conformance
 extension ServicesVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        bleManager.discoverCharacteristics(forService: self.services[indexPath.row]) { [weak self](characteristics, error) in
+            if let characteristics = characteristics {
+                self?.performSegue(withIdentifier: .ServicesToCharacteristics, sender: characteristics)
+            }
+        }
     }
 }
 
