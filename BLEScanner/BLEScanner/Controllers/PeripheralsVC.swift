@@ -12,6 +12,7 @@ import CoreBluetooth
 private extension String {
     static let PeripheralCellID = "PeripheralCell"
     static let PeripheralsToServicesSegue = "PeripheralsToServicesSegue"
+    static let ConnectingToDeviceTitle = "Connecting to device..."
 }
 
 class PeripheralsVC: BluetoothSessionVC {
@@ -54,14 +55,23 @@ extension PeripheralsVC: UITableViewDataSource {
 extension PeripheralsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let peripheral = peripherals[indexPath.row]
+        LoadingIndicatorView.show(.ConnectingToDeviceTitle)
         bleManager.connect(toPeripheral: peripheral) { [weak self](p, error) in
-            if let p = p {
-                self?.bleManager.discoverServices(completion: { (services, error) in
-                    if let services = services {
-                        self?.performSegue(withIdentifier: .PeripheralsToServicesSegue, sender: services)
-                    }
-                })
+            if let error = error {
+                LoadingIndicatorView.hide()
+                self?.showAlert(title: error.localizedDescription, message: nil)
+                return
             }
+            self?.bleManager.discoverServices(completion: { (services, error) in
+                LoadingIndicatorView.hide()
+                if let error = error {
+                    self?.showAlert(title: error.localizedDescription, message: nil)
+                    return
+                }
+                if let services = services {
+                    self?.performSegue(withIdentifier: .PeripheralsToServicesSegue, sender: services)
+                }
+            })
         }
     }
 }

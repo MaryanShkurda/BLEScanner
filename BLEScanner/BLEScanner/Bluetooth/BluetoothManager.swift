@@ -99,9 +99,6 @@ extension BluetoothManager: CBCentralManagerDelegate {
             print("\n---\(advertisementData)\n")
             print("📶 RSSI: \(RSSI)")
         }
-        if let name = advertisementData["kCBAdvDataLocalName"], String(describing: name) ==  "Heart Rate"{
-            //connect(toPeripheral: peripheral) { (_, _) in }
-        }
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
