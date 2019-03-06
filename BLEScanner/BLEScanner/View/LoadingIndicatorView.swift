@@ -9,7 +9,6 @@ class LoadingIndicatorView {
     
     static func show() {
         guard let currentMainWindow = UIApplication.shared.keyWindow else {
-            print("No main window.")
             return
         }
         show(currentMainWindow)
@@ -17,7 +16,6 @@ class LoadingIndicatorView {
     
     static func show(_ loadingText: String) {
         guard let currentMainWindow = UIApplication.shared.keyWindow else {
-            print("No main window.")
             return
         }
         show(currentMainWindow, loadingText: loadingText)

@@ -45,6 +45,10 @@ extension ServicesVC: UITableViewDataSource {
 extension ServicesVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         bleManager.discoverCharacteristics(forService: self.services[indexPath.row]) { [weak self](characteristics, error) in
+            if let error = error {
+                self?.showAlert(title: error.localizedDescription, message: nil)
+                return
+            }
             if let characteristics = characteristics {
                 self?.performSegue(withIdentifier: .ServicesToCharacteristics, sender: characteristics)
             }

@@ -24,8 +24,11 @@ class PeripheralsVC: BluetoothSessionVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         bleManager.setDidDiscoverPeripheralClosure { [weak self](peripheral) in
-            self?.peripherals.append(peripheral)
-            self?.table.reloadData()
+            guard let strongSelf = self else { return }
+            if !strongSelf.peripherals.contains(peripheral){
+                strongSelf.peripherals.append(peripheral)
+                strongSelf.table.reloadData()
+            }
         }
     }
     

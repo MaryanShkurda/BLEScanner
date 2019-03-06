@@ -13,7 +13,6 @@
 		AFAFDEF8222ECCE9001A8E1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFAFDEF7222ECCE9001A8E1A /* Assets.xcassets */; };
 		AFAFDEFB222ECCE9001A8E1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFAFDEF9222ECCE9001A8E1A /* LaunchScreen.storyboard */; };
 		AFAFDF04222FCC8E001A8E1A /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDF03222FCC8E001A8E1A /* BluetoothManager.swift */; };
-		AFAFDF06222FCE4B001A8E1A /* BluetoothManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDF05222FCE4B001A8E1A /* BluetoothManagerDelegate.swift */; };
 		AFAFDF0B222FFFF4001A8E1A /* PeripheralsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDF0A222FFFF4001A8E1A /* PeripheralsVC.swift */; };
 		AFAFDF0D22300977001A8E1A /* ServicesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDF0C22300977001A8E1A /* ServicesVC.swift */; };
 		AFAFDF10223017AA001A8E1A /* CharacteristicsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDF0F223017AA001A8E1A /* CharacteristicsVC.swift */; };
@@ -29,7 +28,6 @@
 		AFAFDEFA222ECCE9001A8E1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFAFDEFC222ECCE9001A8E1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFAFDF03222FCC8E001A8E1A /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
-		AFAFDF05222FCE4B001A8E1A /* BluetoothManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManagerDelegate.swift; sourceTree = "<group>"; };
 		AFAFDF0A222FFFF4001A8E1A /* PeripheralsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralsVC.swift; sourceTree = "<group>"; };
 		AFAFDF0C22300977001A8E1A /* ServicesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesVC.swift; sourceTree = "<group>"; };
 		AFAFDF0F223017AA001A8E1A /* CharacteristicsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicsVC.swift; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				AFAFDF03222FCC8E001A8E1A /* BluetoothManager.swift */,
-				AFAFDF05222FCE4B001A8E1A /* BluetoothManagerDelegate.swift */,
 			);
 			path = Bluetooth;
 			sourceTree = "<group>";
@@ -178,7 +175,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFAFDEF3222ECCE6001A8E1A /* BluetoothSessionVC.swift in Sources */,
-				AFAFDF06222FCE4B001A8E1A /* BluetoothManagerDelegate.swift in Sources */,
 				AFAFDF04222FCC8E001A8E1A /* BluetoothManager.swift in Sources */,
 				AFF1A537223023DF006E845E /* LoadingIndicatorView.swift in Sources */,
 				AFAFDF0B222FFFF4001A8E1A /* PeripheralsVC.swift in Sources */,

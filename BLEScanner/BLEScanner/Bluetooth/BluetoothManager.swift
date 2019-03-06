@@ -14,8 +14,18 @@ typealias DidDiscoverCharacteristicsClosure = ([CBCharacteristic]?, Error?) -> V
 typealias DidConnectToPeripheralClosure = (CBPeripheral?, Error?) -> Void
 typealias DidDiscoverPeripheralClosure = (CBPeripheral) -> Void
 
-enum BluetoothError: Error {
+enum BluetoothError: Error, LocalizedError {
     case noConnectedPeripheral
+    case poweredOff
+    
+    var errorDescription: String?{
+        switch self {
+        case .noConnectedPeripheral:
+            return "No connected peripheral"
+        case .poweredOff:
+            return "Bluetooth is turned off"
+        }
+    }
 }
 
 class BluetoothManager: NSObject {
@@ -45,6 +55,10 @@ class BluetoothManager: NSObject {
     }
     
     func connect(toPeripheral peripheral: CBPeripheral, completion: @escaping DidConnectToPeripheralClosure){
+        guard isPoweredOn else {
+            completion(nil, BluetoothError.poweredOff)
+            return
+        }
         if let connected = connectedPeripheral {
             centralManager.cancelPeripheralConnection(connected)
         }
@@ -78,45 +92,34 @@ class BluetoothManager: NSObject {
 // MARK: CBCentralManagerDelegate conformance
 extension BluetoothManager: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        print("✅")
         switch central.state {
         case .poweredOn:
-            print("central.state is .poweredOn")
             startScan()
         default:
-            print("central.state is .poweredOff")
             centralManager.stopScan()
             peripherals.removeAll()
         }
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        if let name = peripheral.name {
+        if let _ = peripheral.name {
             peripherals.append(peripheral)
             didDiscoverPeripheralClosure?(peripheral)
-            
-            print(name)
-            print("\n---\(advertisementData)\n")
-            print("📶 RSSI: \(RSSI)")
         }
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        print("✅ didConnect: \(peripheral.name)")
         self.connectedPeripheral = peripheral
         didConnectToPeripheralClosure?(peripheral, nil)
         peripheral.delegate = self
-        //peripheral.discoverServices(nil)
     }
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
-        print("❗️❗️didFailToConnect: \(peripheral.name)")
         didConnectToPeripheralClosure?(nil, error)
         self.connectedPeripheral = nil
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-        print("❗️didDisconnectPeripheral: \(peripheral.name)")
         self.connectedPeripheral = nil
     }
     
@@ -126,19 +129,9 @@ extension BluetoothManager: CBCentralManagerDelegate {
 extension BluetoothManager: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         didDiscoveredServicesClosure?(peripheral.services, error)
-        if let services = peripheral.services {
-            for service in services {
-                print("⚠️ service: \(service.uuid)")
-                //peripheral.discoverCharacteristics(nil, for: service)
-            }
-            
-        }
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         didDiscoveredCharacteristicsClosure?(service.characteristics, error)
-        if let characteristics = service.characteristics {
-            print("⚠️⚠️ characteristics for \(service.uuid) : \n \(characteristics) \n---------\n")
-        }
     }
 }
