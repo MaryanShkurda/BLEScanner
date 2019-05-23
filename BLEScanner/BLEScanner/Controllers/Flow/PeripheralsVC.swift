@@ -18,6 +18,7 @@ private extension String {
 class PeripheralsVC: BluetoothSessionVC {
     
     @IBOutlet weak var table: UITableView!
+    var logView: UITextView?
     
     var peripherals = [CBPeripheral]()
     
@@ -36,6 +37,21 @@ class PeripheralsVC: BluetoothSessionVC {
         if let servicesVC = segue.destination as? ServicesVC, let services = sender as? [CBService] {
             servicesVC.services = services
         }
+    }
+    
+    @IBAction func logPressed(_ sender: UIBarButtonItem) {
+        if let logView = logView {
+            logView.removeFromSuperview()
+            self.logView = nil
+            return
+        }
+        logView = UITextView(frame: CGRect(x: 0, y: 100, width: 300, height: 300))
+        logView!.text = Log.read()
+        self.view.addSubview(logView!)
+    }
+    
+    @IBAction func cleanLogPressed(_ sender: UIBarButtonItem) {
+        Log.clean()
     }
     
 }

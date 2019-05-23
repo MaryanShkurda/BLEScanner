@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF83D5212295AA21003F2FE3 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF83D5202295AA21003F2FE3 /* TestData.swift */; };
+		AF83D5242295B071003F2FE3 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF83D5232295B071003F2FE3 /* Logger.swift */; };
+		AF83D5262296B407003F2FE3 /* PeripheralVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF83D5252296B407003F2FE3 /* PeripheralVC.swift */; };
+		AF83D5282296B78F003F2FE3 /* PeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF83D5272296B78F003F2FE3 /* PeripheralManager.swift */; };
+		AF83D52A2296C6DC003F2FE3 /* CentralVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF83D5292296C6DC003F2FE3 /* CentralVC.swift */; };
 		AFAFDEF1222ECCE6001A8E1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDEF0222ECCE6001A8E1A /* AppDelegate.swift */; };
 		AFAFDEF3222ECCE6001A8E1A /* BluetoothSessionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDEF2222ECCE6001A8E1A /* BluetoothSessionVC.swift */; };
 		AFAFDEF6222ECCE6001A8E1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFAFDEF4222ECCE6001A8E1A /* Main.storyboard */; };
 		AFAFDEF8222ECCE9001A8E1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFAFDEF7222ECCE9001A8E1A /* Assets.xcassets */; };
 		AFAFDEFB222ECCE9001A8E1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFAFDEF9222ECCE9001A8E1A /* LaunchScreen.storyboard */; };
-		AFAFDF04222FCC8E001A8E1A /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDF03222FCC8E001A8E1A /* BluetoothManager.swift */; };
+		AFAFDF04222FCC8E001A8E1A /* BLECentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDF03222FCC8E001A8E1A /* BLECentralManager.swift */; };
 		AFAFDF0B222FFFF4001A8E1A /* PeripheralsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDF0A222FFFF4001A8E1A /* PeripheralsVC.swift */; };
 		AFAFDF0D22300977001A8E1A /* ServicesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDF0C22300977001A8E1A /* ServicesVC.swift */; };
 		AFAFDF10223017AA001A8E1A /* CharacteristicsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDF0F223017AA001A8E1A /* CharacteristicsVC.swift */; };
@@ -20,6 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF83D5202295AA21003F2FE3 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestData.swift; path = ../TestData.swift; sourceTree = "<group>"; };
+		AF83D5232295B071003F2FE3 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		AF83D5252296B407003F2FE3 /* PeripheralVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralVC.swift; sourceTree = "<group>"; };
+		AF83D5272296B78F003F2FE3 /* PeripheralManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralManager.swift; sourceTree = "<group>"; };
+		AF83D5292296C6DC003F2FE3 /* CentralVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralVC.swift; sourceTree = "<group>"; };
 		AFAFDEED222ECCE6001A8E1A /* BLEScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLEScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFAFDEF0222ECCE6001A8E1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFAFDEF2222ECCE6001A8E1A /* BluetoothSessionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothSessionVC.swift; sourceTree = "<group>"; };
@@ -27,7 +37,7 @@
 		AFAFDEF7222ECCE9001A8E1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFAFDEFA222ECCE9001A8E1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFAFDEFC222ECCE9001A8E1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AFAFDF03222FCC8E001A8E1A /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
+		AFAFDF03222FCC8E001A8E1A /* BLECentralManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLECentralManager.swift; sourceTree = "<group>"; };
 		AFAFDF0A222FFFF4001A8E1A /* PeripheralsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralsVC.swift; sourceTree = "<group>"; };
 		AFAFDF0C22300977001A8E1A /* ServicesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesVC.swift; sourceTree = "<group>"; };
 		AFAFDF0F223017AA001A8E1A /* CharacteristicsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicsVC.swift; sourceTree = "<group>"; };
@@ -45,6 +55,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF83D5222295AD43003F2FE3 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				AF83D5202295AA21003F2FE3 /* TestData.swift */,
+				AF83D5232295B071003F2FE3 /* Logger.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		AF83D52B2296F450003F2FE3 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				AFAFDEF2222ECCE6001A8E1A /* BluetoothSessionVC.swift */,
+				AFAFDF0C22300977001A8E1A /* ServicesVC.swift */,
+				AFAFDF0F223017AA001A8E1A /* CharacteristicsVC.swift */,
+				AFAFDF0A222FFFF4001A8E1A /* PeripheralsVC.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
 		AFAFDEE4222ECCE6001A8E1A = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +94,7 @@
 		AFAFDEEF222ECCE6001A8E1A /* BLEScanner */ = {
 			isa = PBXGroup;
 			children = (
+				AF83D5222295AD43003F2FE3 /* New Group */,
 				AFAFDF0E22300E22001A8E1A /* View */,
 				AFAFDF07222FFEFF001A8E1A /* Controllers */,
 				AFAFDF02222FCC67001A8E1A /* Bluetooth */,
@@ -79,7 +110,8 @@
 		AFAFDF02222FCC67001A8E1A /* Bluetooth */ = {
 			isa = PBXGroup;
 			children = (
-				AFAFDF03222FCC8E001A8E1A /* BluetoothManager.swift */,
+				AFAFDF03222FCC8E001A8E1A /* BLECentralManager.swift */,
+				AF83D5272296B78F003F2FE3 /* PeripheralManager.swift */,
 			);
 			path = Bluetooth;
 			sourceTree = "<group>";
@@ -87,10 +119,9 @@
 		AFAFDF07222FFEFF001A8E1A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AFAFDEF2222ECCE6001A8E1A /* BluetoothSessionVC.swift */,
-				AFAFDF0C22300977001A8E1A /* ServicesVC.swift */,
-				AFAFDF0A222FFFF4001A8E1A /* PeripheralsVC.swift */,
-				AFAFDF0F223017AA001A8E1A /* CharacteristicsVC.swift */,
+				AF83D52B2296F450003F2FE3 /* Flow */,
+				AF83D5292296C6DC003F2FE3 /* CentralVC.swift */,
+				AF83D5252296B407003F2FE3 /* PeripheralVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -135,6 +166,11 @@
 				TargetAttributes = {
 					AFAFDEEC222ECCE6001A8E1A = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -174,11 +210,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF83D5262296B407003F2FE3 /* PeripheralVC.swift in Sources */,
+				AF83D5212295AA21003F2FE3 /* TestData.swift in Sources */,
 				AFAFDEF3222ECCE6001A8E1A /* BluetoothSessionVC.swift in Sources */,
-				AFAFDF04222FCC8E001A8E1A /* BluetoothManager.swift in Sources */,
+				AFAFDF04222FCC8E001A8E1A /* BLECentralManager.swift in Sources */,
+				AF83D52A2296C6DC003F2FE3 /* CentralVC.swift in Sources */,
 				AFF1A537223023DF006E845E /* LoadingIndicatorView.swift in Sources */,
+				AF83D5242295B071003F2FE3 /* Logger.swift in Sources */,
 				AFAFDF0B222FFFF4001A8E1A /* PeripheralsVC.swift in Sources */,
 				AFAFDF0D22300977001A8E1A /* ServicesVC.swift in Sources */,
+				AF83D5282296B78F003F2FE3 /* PeripheralManager.swift in Sources */,
 				AFAFDF10223017AA001A8E1A /* CharacteristicsVC.swift in Sources */,
 				AFAFDEF1222ECCE6001A8E1A /* AppDelegate.swift in Sources */,
 			);
