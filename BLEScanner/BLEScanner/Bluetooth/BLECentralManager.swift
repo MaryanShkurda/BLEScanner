@@ -44,11 +44,13 @@ class BLECentralManager: NSObject {
     private var didDiscoveredCharacteristicsClosure: DidDiscoverCharacteristicsClosure?
     private var didUpdateValueForCharactersticClosure: DidUpdateValueForCharacterstic?
     
+    private var queue = DispatchQueue(label: "BLECentralManager.queue", qos: .userInitiated)
+    
     var bleDataHandler: BLEDataHandlerProtocol? = BLEDataHandler()
     
     override private init() {
         super.init()
-        centralManager = CBCentralManager(delegate: self, queue: nil,
+        centralManager = CBCentralManager(delegate: self, queue: queue,
                                           options: [CBCentralManagerOptionRestoreIdentifierKey: BLECentralManager.identifier])
     }
     
