@@ -6,14 +6,14 @@
 //  Copyright © 2019 Marian Shkurda. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Log {
     
     static let logURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("log.txt")
     
     static func write(_ string: String) {
-        let line = "[\(Date())]: \(string)\n"
+        let line = "\(UIApplication.shared.applicationState.value)-[\(Date())]:\n\(string)\n------------\n"
         if let handle = try? FileHandle(forWritingTo: logURL) {
             handle.seekToEndOfFile()
             handle.write(line.data(using: .utf8)!)
@@ -37,4 +37,17 @@ class Log {
 
 extension Notification.Name {
     static let onLogWrite = Notification.Name("onLogWrite")
+}
+
+extension UIApplication.State {
+    var value: String {
+        switch self {
+        case .background:
+            return "BG"
+        case .active:
+            return "ACT"
+        case .inactive:
+            return "INACT"
+        }
+    }
 }

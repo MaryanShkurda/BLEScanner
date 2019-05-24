@@ -36,6 +36,7 @@ class BLECentralManager: NSObject {
     var peripherals = [CBPeripheral]()
     static let identifier = "CentralManagerIdentifier"
     
+    static let instance = BLECentralManager()
     
     private var didDiscoverPeripheralClosure: DidDiscoverPeripheralClosure?
     private var didConnectToPeripheralClosure: DidConnectToPeripheralClosure?
@@ -43,7 +44,7 @@ class BLECentralManager: NSObject {
     private var didDiscoveredCharacteristicsClosure: DidDiscoverCharacteristicsClosure?
     private var didUpdateValueForCharactersticClosure: DidUpdateValueForCharacterstic?
     
-    override init() {
+    override private init() {
         super.init()
         centralManager = CBCentralManager(delegate: self, queue: nil,
                                           options: [CBCentralManagerOptionRestoreIdentifierKey: BLECentralManager.identifier])
@@ -148,7 +149,6 @@ extension BLECentralManager: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         Log.write("⚠️ didDisconnectPeripheral peripheral")
-        //self.connectedPeripheral = nil
         centralManager.connect(peripheral, options: nil)
     }
     
@@ -159,6 +159,8 @@ extension BLECentralManager: CBCentralManagerDelegate {
             Log.write("Restored: \(peripherls.count) peripherals")
             connectedPeripheral = peripherls.first
             connectedPeripheral?.delegate = self
+            subscribeToCharacteristic(characteristicUUID: TestData.BLEData.MY_PERIPHERAL_TEST_SERVICE,
+                                      inService: TestData.BLEData.MY_PERIPHERAL_TEST_SERVICE)
         }
     }
 }
@@ -176,18 +178,13 @@ extension BLECentralManager: CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        Log.write("peripheral didUpdateValueFor")
         didUpdateValueForCharactersticClosure?(characteristic, error)
         guard let value = characteristic.value else { return }
-        print("ℹ️ \(value.hexDescription)")
-        if UIApplication.shared.applicationState == .background {
-            Log.write("⚠️ didUpdateValueFor characteristic in background")
-        }
-        Log.write("\(value.hexDescription)")
+        Log.write("ℹ️ didUpdateValueFor characteristic: \(value.hexDescription)")
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
-        if let error = error {
+        if let _ = error {
             Log.write("⚠️ didUpdateNotificationStateFor")
         } else {
             Log.write("✅ didUpdateNotificationStateFor")

@@ -18,6 +18,7 @@ class PeripheralVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLog()
+        logView.keyboardDismissMode = .interactive
         NotificationCenter.default.addObserver(self, selector: #selector(updateLog), name: .onLogWrite, object: nil)
     }
     

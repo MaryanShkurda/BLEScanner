@@ -97,10 +97,14 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Nez-IE-hbo">
-                                <rect key="frame" x="132.5" y="130" width="110" height="36"/>
+                                <rect key="frame" x="112.5" y="130" width="150" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWB-lz-ujw">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="36"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="m7z-6l-Ox0"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="0"/>
                                         <connections>
@@ -108,7 +112,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zSY-XF-MD9">
-                                        <rect key="frame" x="80" y="0.0" width="30" height="36"/>
+                                        <rect key="frame" x="100" y="0.0" width="50" height="36"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="1"/>
                                         <connections>
@@ -116,6 +121,9 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="zSY-XF-MD9" firstAttribute="width" secondItem="KWB-lz-ujw" secondAttribute="width" id="s7a-K3-2iH"/>
+                                </constraints>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XV9-cS-gzB">
                                 <rect key="frame" x="16" y="196" width="343" height="406"/>
@@ -210,6 +218,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BKp-hU-SyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1478" y="399"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="G9d-KY-l3e">
+            <objects>
+                <viewController id="u5y-bM-mgZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P0O-Bq-o9R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="iyC-d7-j6r"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a5w-GU-Cb0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1123" y="1286"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="rbz-7B-W4H">

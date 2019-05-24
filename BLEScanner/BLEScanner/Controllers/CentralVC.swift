@@ -19,13 +19,14 @@ class CentralVC: UIViewController {
         // Do any additional setup after loading the view.
         updateLog()
         NotificationCenter.default.addObserver(self, selector: #selector(updateLog), name: .onLogWrite, object: nil)
+        logView.keyboardDismissMode = .interactive
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
-    private var bleCentralManager = BLECentralManager()
+    private var bleCentralManager = BLECentralManager.instance
     
     
     @IBAction func clearPressed(_ sender: UIButton) {

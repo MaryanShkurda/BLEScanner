@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let options = launchOptions, let blePeripherals = options[UIApplication.LaunchOptionsKey.bluetoothPeripherals] as? [String] {
             Log.write("didFinishLaunchingWithOptions BLE peripherals: \(blePeripherals)")
         }
+        BLECentralManager.instance
         return true
     }
 

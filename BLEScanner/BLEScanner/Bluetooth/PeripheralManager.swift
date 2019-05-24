@@ -19,9 +19,9 @@ class PeripheralManager: NSObject {
         super.init()
         readCharacteristic = CBMutableCharacteristic(
             type: TestData.BLEData.MY_PERIPHERAL_TEST_CHARACTERISTIC,
-            properties: CBCharacteristicProperties.notify,
+            properties: [.read, .notify, .notifyEncryptionRequired],
             value: nil,
-            permissions: CBAttributePermissions.readEncryptionRequired
+            permissions: .readEncryptionRequired
         )
         service = CBMutableService(
             type: TestData.BLEData.MY_PERIPHERAL_TEST_SERVICE,
@@ -56,6 +56,7 @@ extension PeripheralManager: CBPeripheralManagerDelegate {
         
         if peripheral.state == .poweredOn {
             cbPeripheralManager.add(service)
+            run()
             Log.write("✅ Peripheral power on")
         } else {
             Log.write("⚠️⚠️ Peripheral power state: \(peripheral.state.rawValue)")

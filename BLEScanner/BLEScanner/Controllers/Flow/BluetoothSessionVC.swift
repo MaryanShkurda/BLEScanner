@@ -10,7 +10,7 @@ import UIKit
 
 class BluetoothSessionVC: UIViewController {
     
-    var bleManager = BLECentralManager()
+    var bleManager = BLECentralManager.instance
     
     func showAlert(title: String?, message: String?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
