@@ -13,7 +13,7 @@ class PeripheralVC: UIViewController {
     @IBOutlet weak var logView: UITextView!
     @IBOutlet weak var startBtn: UIButton!
     
-    var peripheralManager = PeripheralManager()
+    var peripheralManager = PeripheralManager.instance
     
     override func viewDidLoad() {
         super.viewDidLoad()

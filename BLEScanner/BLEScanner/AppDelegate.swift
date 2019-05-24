@@ -19,11 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Log.write("didFinishLaunchingWithOptions called")
         if let options = launchOptions, let bleCentrals = options[UIApplication.LaunchOptionsKey.bluetoothCentrals] as? [String] {
             Log.write("didFinishLaunchingWithOptions BLE centrals: \(bleCentrals)")
+            BLECentralManager.instance
         }
         if let options = launchOptions, let blePeripherals = options[UIApplication.LaunchOptionsKey.bluetoothPeripherals] as? [String] {
             Log.write("didFinishLaunchingWithOptions BLE peripherals: \(blePeripherals)")
         }
-        BLECentralManager.instance
         return true
     }
 

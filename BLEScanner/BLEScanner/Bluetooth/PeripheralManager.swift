@@ -15,11 +15,13 @@ class PeripheralManager: NSObject {
     private var readCharacteristic: CBMutableCharacteristic!
     private var service: CBMutableService!
     
-    override init() {
+    static let instance = PeripheralManager()
+    
+    override private init() {
         super.init()
         readCharacteristic = CBMutableCharacteristic(
             type: TestData.BLEData.MY_PERIPHERAL_TEST_CHARACTERISTIC,
-            properties: [.read, .notify, .notifyEncryptionRequired],
+            properties: [.read, .notify, .notifyEncryptionRequired, .indicateEncryptionRequired],
             value: nil,
             permissions: .readEncryptionRequired
         )
@@ -73,5 +75,9 @@ extension PeripheralManager: CBPeripheralManagerDelegate {
     
     func peripheralManagerDidStartAdvertising(_ peripheral: CBPeripheralManager, error: Error?) {
         Log.write("ℹ️ startAdvertising")
+    }
+    
+    func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveRead request: CBATTRequest) {
+        Log.write("ℹ️ didReceiveRead request")
     }
 }
