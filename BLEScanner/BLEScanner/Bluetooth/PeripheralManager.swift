@@ -21,7 +21,7 @@ class PeripheralManager: NSObject {
         super.init()
         readCharacteristic = CBMutableCharacteristic(
             type: TestData.BLEData.MY_PERIPHERAL_TEST_CHARACTERISTIC,
-            properties: [.read, .notify, .notifyEncryptionRequired, .indicateEncryptionRequired],
+            properties: [.indicateEncryptionRequired], //[.read, .notify, .notifyEncryptionRequired, .indicateEncryptionRequired]
             value: nil,
             permissions: .readEncryptionRequired
         )

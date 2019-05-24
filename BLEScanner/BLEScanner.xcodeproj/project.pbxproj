@@ -21,6 +21,7 @@
 		AFAFDF0B222FFFF4001A8E1A /* PeripheralsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDF0A222FFFF4001A8E1A /* PeripheralsVC.swift */; };
 		AFAFDF0D22300977001A8E1A /* ServicesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDF0C22300977001A8E1A /* ServicesVC.swift */; };
 		AFAFDF10223017AA001A8E1A /* CharacteristicsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDF0F223017AA001A8E1A /* CharacteristicsVC.swift */; };
+		AFB4FCCA2298416E002AEFD7 /* BLEDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4FCC92298416E002AEFD7 /* BLEDataHandler.swift */; };
 		AFF1A537223023DF006E845E /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF1A536223023DF006E845E /* LoadingIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		AFAFDF0A222FFFF4001A8E1A /* PeripheralsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralsVC.swift; sourceTree = "<group>"; };
 		AFAFDF0C22300977001A8E1A /* ServicesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesVC.swift; sourceTree = "<group>"; };
 		AFAFDF0F223017AA001A8E1A /* CharacteristicsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicsVC.swift; sourceTree = "<group>"; };
+		AFB4FCC92298416E002AEFD7 /* BLEDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDataHandler.swift; sourceTree = "<group>"; };
 		AFF1A536223023DF006E845E /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,7 @@
 			children = (
 				AFAFDF03222FCC8E001A8E1A /* BLECentralManager.swift */,
 				AF83D5272296B78F003F2FE3 /* PeripheralManager.swift */,
+				AFB4FCC92298416E002AEFD7 /* BLEDataHandler.swift */,
 			);
 			path = Bluetooth;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				AFAFDF0D22300977001A8E1A /* ServicesVC.swift in Sources */,
 				AF83D5282296B78F003F2FE3 /* PeripheralManager.swift in Sources */,
 				AFAFDF10223017AA001A8E1A /* CharacteristicsVC.swift in Sources */,
+				AFB4FCCA2298416E002AEFD7 /* BLEDataHandler.swift in Sources */,
 				AFAFDEF1222ECCE6001A8E1A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -44,6 +44,8 @@ class BLECentralManager: NSObject {
     private var didDiscoveredCharacteristicsClosure: DidDiscoverCharacteristicsClosure?
     private var didUpdateValueForCharactersticClosure: DidUpdateValueForCharacterstic?
     
+    var bleDataHandler: BLEDataHandlerProtocol? = BLEDataHandler()
+    
     override private init() {
         super.init()
         centralManager = CBCentralManager(delegate: self, queue: nil,
@@ -181,6 +183,7 @@ extension BLECentralManager: CBPeripheralDelegate {
         didUpdateValueForCharactersticClosure?(characteristic, error)
         guard let value = characteristic.value else { return }
         Log.write("ℹ️ didUpdateValueFor characteristic: \(value.hexDescription)")
+        bleDataHandler?.receivedNewPackage(data: value)
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
