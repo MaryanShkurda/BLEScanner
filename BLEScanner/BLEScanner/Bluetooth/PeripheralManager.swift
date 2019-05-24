@@ -11,11 +11,18 @@ import CoreBluetooth
 
 class PeripheralManager: NSObject {
     
-    private lazy var cbPeripheralManager = CBPeripheralManager(delegate: self, queue: nil)
+    private lazy var cbPeripheralManager = CBPeripheralManager(delegate: self, queue: queue)
     private var readCharacteristic: CBMutableCharacteristic!
     private var service: CBMutableService!
     
+    private var queue = DispatchQueue(label: "BLECentralManager.queue", qos: .userInitiated)
+    
     static let instance = PeripheralManager()
+    
+    private var isStartFlagSend = false
+    private var sendingEOM = false
+    private var sendDataIndex = 0
+    private var dataToSend: Data?
     
     override private init() {
         super.init()
@@ -51,8 +58,105 @@ class PeripheralManager: NSObject {
         )
         Log.write("ℹ️ \(str) didSend: \(didSend)")
     }
+    
+    func send(data: Data) {
+        dataToSend = data
+        send()
+    }
+    
+    func send(){
+        guard let data = dataToSend else { return }
+        if !isStartFlagSend {
+            isStartFlagSend = cbPeripheralManager
+                .updateValue(BLEConstants.START_FLAG,
+                             for: readCharacteristic,
+                             onSubscribedCentrals: nil)
+            Log.write("ℹ️ Start flag")
+        }
+        if sendingEOM {
+            // send it
+            let didSend = cbPeripheralManager
+                .updateValue(BLEConstants.END_FLAG,
+                             for: readCharacteristic,
+                             onSubscribedCentrals: nil)
+            // Did it send?
+            if (didSend) {
+                sendingCompleted()
+            }
+            // It didn't send, so we'll exit and wait for peripheralManagerIsReadyToUpdateSubscribers to call sendData again
+            return
+        }
+        
+        guard sendDataIndex < data.count else {
+            // No data left.  Do nothing
+            return
+        }
+        
+        var didSend = true
+        
+        while didSend {
+            // Make the next chunk
+            
+            // Work out how big it should be
+            var amountToSend = data.count - sendDataIndex;
+            
+            // Can't be longer than 20 bytes
+            if (amountToSend > BLEConstants.NOTIFY_MTU) {
+                amountToSend = BLEConstants.NOTIFY_MTU;
+            }
+            
+            // Copy out the data we want
+            let chunk = data.withUnsafeBytes{(body: UnsafePointer<UInt8>) in
+                return Data(
+                    bytes: body + sendDataIndex,
+                    count: amountToSend
+                )
+            }
+            // Send it
+            didSend = cbPeripheralManager.updateValue(
+                chunk,
+                for: readCharacteristic,
+                onSubscribedCentrals: nil
+            )
+            
+            if (!didSend) {
+                return
+            }
+            
+            // It did send, so update our index
+            sendDataIndex += amountToSend;
+            
+            // Was it the last one?
+            if (sendDataIndex >= data.count) {
+                // It was - send an EOM
+                // Set this so if the send fails, we'll send it next time
+                sendingEOM = true
+                sendDataIndex = 0
+                // Send it
+                let eomSent = cbPeripheralManager.updateValue(
+                    BLEConstants.END_FLAG,
+                    for: readCharacteristic,
+                    onSubscribedCentrals: nil
+                )
+                
+                if (eomSent) {
+                    sendingCompleted()
+                    return
+                }
+            }
+        }
+    }
+    
+    func sendingCompleted() {
+        isStartFlagSend = false
+        sendingEOM = false
+        sendDataIndex = 0
+        dataToSend = nil
+        Log.write("✅ EOM flag")
+    }
 }
 
+//MARK: CBPeripheralManagerDelegate
 extension PeripheralManager: CBPeripheralManagerDelegate {
     func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
         
@@ -79,5 +183,8 @@ extension PeripheralManager: CBPeripheralManagerDelegate {
     
     func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveRead request: CBATTRequest) {
         Log.write("ℹ️ didReceiveRead request")
+    }
+    func peripheralManagerIsReady(toUpdateSubscribers peripheral: CBPeripheralManager) {
+        send()
     }
 }

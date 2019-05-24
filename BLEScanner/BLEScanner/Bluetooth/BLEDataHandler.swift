@@ -14,20 +14,17 @@ protocol BLEDataHandlerProtocol {
 
 class BLEDataHandler: BLEDataHandlerProtocol {
     
-    private let START_FLAG = "<BEG>".data(using: .utf8)!
-    private let END_FLAG = "<END>".data(using: .utf8)!
-    
     private var currentData = Data()
     private var transferringInProgress = false
     private var numberOfPackages = 0
     
     func receivedNewPackage(data: Data) {
-        if data == START_FLAG {
+        if data == BLEConstants.START_FLAG {
             transferringInProgress = true
             numberOfPackages = 0
             return
         }
-        if data == END_FLAG {
+        if data == BLEConstants.END_FLAG {
             transferringInProgress = false
             numberOfPackages = 0
             save()

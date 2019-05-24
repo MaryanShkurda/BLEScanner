@@ -22,12 +22,14 @@
 		AFAFDF0D22300977001A8E1A /* ServicesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDF0C22300977001A8E1A /* ServicesVC.swift */; };
 		AFAFDF10223017AA001A8E1A /* CharacteristicsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAFDF0F223017AA001A8E1A /* CharacteristicsVC.swift */; };
 		AFB4FCCA2298416E002AEFD7 /* BLEDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4FCC92298416E002AEFD7 /* BLEDataHandler.swift */; };
+		AFB4FCCE22984EBE002AEFD7 /* BLEConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4FCCD22984EBE002AEFD7 /* BLEConstants.swift */; };
+		AFB4FCD1229866F7002AEFD7 /* TestData.txt in Resources */ = {isa = PBXBuildFile; fileRef = AFB4FCD0229866F7002AEFD7 /* TestData.txt */; };
 		AFF1A537223023DF006E845E /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF1A536223023DF006E845E /* LoadingIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AF83D5202295AA21003F2FE3 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestData.swift; path = ../TestData.swift; sourceTree = "<group>"; };
-		AF83D5232295B071003F2FE3 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		AF83D5232295B071003F2FE3 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = "New Group/Logger.swift"; sourceTree = "<group>"; };
 		AF83D5252296B407003F2FE3 /* PeripheralVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralVC.swift; sourceTree = "<group>"; };
 		AF83D5272296B78F003F2FE3 /* PeripheralManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralManager.swift; sourceTree = "<group>"; };
 		AF83D5292296C6DC003F2FE3 /* CentralVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralVC.swift; sourceTree = "<group>"; };
@@ -43,6 +45,8 @@
 		AFAFDF0C22300977001A8E1A /* ServicesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesVC.swift; sourceTree = "<group>"; };
 		AFAFDF0F223017AA001A8E1A /* CharacteristicsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicsVC.swift; sourceTree = "<group>"; };
 		AFB4FCC92298416E002AEFD7 /* BLEDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDataHandler.swift; sourceTree = "<group>"; };
+		AFB4FCCD22984EBE002AEFD7 /* BLEConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEConstants.swift; sourceTree = "<group>"; };
+		AFB4FCD0229866F7002AEFD7 /* TestData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestData.txt; sourceTree = "<group>"; };
 		AFF1A536223023DF006E845E /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,8 +64,8 @@
 		AF83D5222295AD43003F2FE3 /* New Group */ = {
 			isa = PBXGroup;
 			children = (
+				AFB4FCD0229866F7002AEFD7 /* TestData.txt */,
 				AF83D5202295AA21003F2FE3 /* TestData.swift */,
-				AF83D5232295B071003F2FE3 /* Logger.swift */,
 			);
 			path = "New Group";
 			sourceTree = "<group>";
@@ -101,6 +105,7 @@
 				AFAFDF07222FFEFF001A8E1A /* Controllers */,
 				AFAFDF02222FCC67001A8E1A /* Bluetooth */,
 				AFAFDEF0222ECCE6001A8E1A /* AppDelegate.swift */,
+				AF83D5232295B071003F2FE3 /* Logger.swift */,
 				AFAFDEF4222ECCE6001A8E1A /* Main.storyboard */,
 				AFAFDEF7222ECCE9001A8E1A /* Assets.xcassets */,
 				AFAFDEF9222ECCE9001A8E1A /* LaunchScreen.storyboard */,
@@ -115,6 +120,7 @@
 				AFAFDF03222FCC8E001A8E1A /* BLECentralManager.swift */,
 				AF83D5272296B78F003F2FE3 /* PeripheralManager.swift */,
 				AFB4FCC92298416E002AEFD7 /* BLEDataHandler.swift */,
+				AFB4FCCD22984EBE002AEFD7 /* BLEConstants.swift */,
 			);
 			path = Bluetooth;
 			sourceTree = "<group>";
@@ -200,6 +206,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFB4FCD1229866F7002AEFD7 /* TestData.txt in Resources */,
 				AFAFDEFB222ECCE9001A8E1A /* LaunchScreen.storyboard in Resources */,
 				AFAFDEF8222ECCE9001A8E1A /* Assets.xcassets in Resources */,
 				AFAFDEF6222ECCE6001A8E1A /* Main.storyboard in Resources */,
@@ -215,6 +222,7 @@
 			files = (
 				AF83D5262296B407003F2FE3 /* PeripheralVC.swift in Sources */,
 				AF83D5212295AA21003F2FE3 /* TestData.swift in Sources */,
+				AFB4FCCE22984EBE002AEFD7 /* BLEConstants.swift in Sources */,
 				AFAFDEF3222ECCE6001A8E1A /* BluetoothSessionVC.swift in Sources */,
 				AFAFDF04222FCC8E001A8E1A /* BLECentralManager.swift in Sources */,
 				AF83D52A2296C6DC003F2FE3 /* CentralVC.swift in Sources */,

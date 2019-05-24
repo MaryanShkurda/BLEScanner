@@ -42,6 +42,13 @@ class PeripheralVC: UIViewController {
         Log.clean()
     }
     
+    @IBAction func sendDataPressed(_ sender: UIButton) {
+        guard let url = Bundle.main.url(forResource: "TestData", withExtension: "txt") else { return }
+        guard let str = try? String(contentsOf: url), let testData = str.data(using: .utf8) else { return }
+        peripheralManager.send(data: testData)
+    }
+    
+    
     @objc func updateLog() {
         logView.text = Log.read()
     }

@@ -13,16 +13,18 @@ class Log {
     static let logURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("log.txt")
     
     static func write(_ string: String) {
-        let line = "\(UIApplication.shared.applicationState.value)-[\(Date())]:\n\(string)\n------------\n"
-        if let handle = try? FileHandle(forWritingTo: logURL) {
-            handle.seekToEndOfFile()
-            handle.write(line.data(using: .utf8)!)
-            handle.closeFile()
-        } else {
-            try? line.data(using: .utf8)?.write(to: logURL)
+        DispatchQueue.main.async {
+            let line = "\(UIApplication.shared.applicationState.value)-[\(Date())]:\n\(string)\n------------\n"
+            if let handle = try? FileHandle(forWritingTo: logURL) {
+                handle.seekToEndOfFile()
+                handle.write(line.data(using: .utf8)!)
+                handle.closeFile()
+            } else {
+                try? line.data(using: .utf8)?.write(to: logURL)
+            }
+            print(line)
+            NotificationCenter.default.post(name: .onLogWrite, object: nil)
         }
-        print(line)
-        NotificationCenter.default.post(name: .onLogWrite, object: nil)
     }
     
     static func read() -> String {
